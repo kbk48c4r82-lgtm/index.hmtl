@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KaffeeKult in Neuwied: frisch gerösteter Kaffee, hausgemachter Kuchen und eine gemütliche Auszeit.">
+  <meta name="theme-color" content="#f5efe6">
+  <title>KaffeeKult – Kaffee, Kuchen & gute Zeit in Neuwied</title>
+  <style>
+    :root { --ink:#2d211a; --muted:#76685c; --coffee:#71452e; --cream:#f5efe6; --cream-dark:#e9ddce; --orange:#d8894e; --white:#fffdf9; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:inherit; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { padding:20px 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:850; letter-spacing:-.04em; font-size:1.2rem; }
+    .brand-mark { width:34px; height:34px; display:grid; place-items:center; background:var(--coffee); color:var(--cream); border-radius:50%; font-size:1.15rem; }
+    nav { display:flex; gap:26px; }
+    nav a { text-decoration:none; color:var(--muted); font-size:.94rem; }
+    nav a:hover { color:var(--coffee); }
+    .hero { min-height:540px; padding:66px 0 82px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:55px; }
+    .eyebrow { color:var(--coffee); font-weight:750; text-transform:uppercase; letter-spacing:.14em; font-size:.76rem; }
+    h1 { font-family:Georgia,serif; font-weight:500; font-size:clamp(3rem,7vw,5.6rem); line-height:.98; letter-spacing:-.055em; margin:18px 0 22px; max-width:720px; }
+    .lead { font-size:1.15rem; color:var(--muted); max-width:540px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .button { display:inline-block; border-radius:999px; padding:13px 21px; font-weight:700; text-decoration:none; background:var(--coffee); color:white; transition:transform .18s,background .18s; }
+    .button:hover { transform:translateY(-2px); background:#56321f; }
+    .button.secondary { background:transparent; color:var(--coffee); border:1px solid #c6ad98; }
+    .hero-art { min-height:390px; border-radius:50% 50% 20px 20px / 40% 40% 20px 20px; position:relative; overflow:hidden; background:var(--cream-dark); box-shadow:0 24px 55px #43271822; }
+    .hero-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+    .hero-note { position:absolute; z-index:2; bottom:9%; right:4%; background:var(--white); padding:13px 18px; border-radius:14px; transform:rotate(3deg); font-family:Georgia,serif; color:var(--coffee); }
+    section { padding:76px 0; }
+    .section-title { font-family:Georgia,serif; font-size:clamp(2.2rem,4vw,3.4rem); font-weight:500; line-height:1.08; letter-spacing:-.045em; margin:8px 0 17px; }
+    .intro { max-width:660px; color:var(--muted); font-size:1.06rem; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:35px; }
+    .card { background:var(--white); padding:27px; border-radius:18px; border:1px solid #eadfd3; }
+    .card .icon { width:45px; height:45px; display:grid; place-items:center; background:#f2e6d8; border-radius:50%; font-size:1.3rem; }
+    .card h3 { margin:15px 0 7px; font-family:Georgia,serif; font-size:1.35rem; font-weight:500; }
+    .card p { color:var(--muted); margin:0; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:34px; }
+    .gallery figure { margin:0; overflow:hidden; border-radius:18px; position:relative; background:var(--cream-dark); }
+    .gallery img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform .4s; }
+    .gallery figure:hover img { transform:scale(1.035); }
+    .gallery figcaption { position:absolute; left:12px; bottom:12px; border-radius:999px; padding:6px 11px; background:#fffdf9e8; font-size:.8rem; }
+    .review { background:#ede1d3; }
+    .review-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center; }
+    .rating { font-family:Georgia,serif; font-size:4rem; line-height:1; color:var(--coffee); }
+    .stars { color:#b76a27; letter-spacing:.12em; font-size:1.25rem; }
+    .review-text { font-family:Georgia,serif; font-size:1.5rem; line-height:1.4; }
+    .review small { color:var(--muted); }
+    .contact-box { background:var(--coffee); color:white; border-radius:26px; padding:44px; display:flex; justify-content:space-between; align-items:center; gap:30px; }
+    .contact-box p { color:#f0ded0; margin-bottom:0; }
+    .contact-box .button { background:#f0c89e; color:var(--ink); white-space:nowrap; }
+    .contact-box .button:hover { background:#ffdbb5; }
+    .contact-box .section-title { margin-bottom:6px; }
+    .address { font-size:1.05rem; }
+    footer { padding:27px 0; color:var(--muted); font-size:.9rem; }
+    footer .wrap { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    footer a { text-underline-offset:3px; }
+    @media(max-width:760px) { .hero,.review-grid { grid-template-columns:1fr; } .hero { padding-top:44px; gap:30px; } .hero-art { min-height:290px; } .cards { grid-template-columns:1fr; } .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } nav { gap:14px; } .contact-box { padding:30px; display:block; } .contact-box .button { margin-top:22px; } }
+    @media(max-width:430px) { .wrap { width:min(100% - 28px,1120px); } nav a { font-size:.84rem; } .brand { font-size:1.05rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#start"><span class="brand-mark" aria-hidden="true">☕</span>KaffeeKult</a>
+      <nav aria-label="Hauptnavigation"><a href="#geniessen">Bei uns</a><a href="#stimmen">Gästestimmen</a><a href="#besuch">Besuch planen</a></nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap hero" id="start">
+      <div>
+        <div class="eyebrow">Kaffee · Kuchen · Neuwied</div>
+        <h1>Eine gute Tasse. Ein guter Moment.</h1>
+        <p class="lead">Wir rösten frisch für dich und freuen uns auf deinen Besuch bei Kaffee und hausgemachtem Kuchen.</p>
+        <div class="actions"><a class="button" href="#besuch">So findest du uns</a><a class="button secondary" href="tel:+4926319272375">Jetzt anrufen</a></div>
+      </div>
+      <div class="hero-art"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RApTtFbM--G60Puh1PEiHw1e9As9KLiZUh8qhSdA-fsm-Nh0fDe2vosmom5cGHf2kAlYNQkHgO7jBk7uLYiqF_NCFK999uMAoMihmMthEt_Z-EUiWSW4HdZt6m5Va5VWOs9KWyZPYiEfxW=w800-h1000-n-k-no-nu" alt="Hausgemachter Kuchen und Tee an einem Tisch im KaffeeKult" fetchpriority="high"><span class="hero-note">Frisch geröstet</span></div>
+    </div>
+
+    <section id="geniessen">
+      <div class="wrap">
+        <div class="eyebrow">Klein, herzlich, mit Liebe gemacht</div>
+        <h2 class="section-title">Deine Auszeit im KaffeeKult</h2>
+        <p class="intro">Mitten in Neuwied erwartet dich KaffeeKult mit frisch geröstetem Kaffee, hausgemachtem Kuchen und einer gemütlichen Atmosphäre. Komm vorbei und mach es dir eine Weile schön.</p>
+        <div class="cards">
+          <article class="card"><div class="icon" aria-hidden="true">☕</div><h3>Frisch gerösteter Kaffee</h3><p>Wir rösten frisch für dich – für aromatischen Kaffeegenuss und eine kleine Pause vom Alltag.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">🍰</div><h3>Hausgemachter Kuchen</h3><p>Freu dich auf hausgemachte Kuchen, liebevoll zubereitet und passend zu deiner Tasse Kaffee.</p></article>
+          <article class="card"><div class="icon" aria-hidden="true">♡</div><h3>Herzlich willkommen</h3><p>Ob kurzer Kaffee oder gemütliches Zusammensitzen: Schön, dass du da bist.</p></article>
+        </div>
+        <div class="gallery" aria-label="Fotos vom KaffeeKult">
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QXkq317RbMqdfAjPsQkpx9QKsfzDc93LuseFUw2cMWiOLmrD--0I1vq1KeYCIFq1mbi_9r51uL_bTdGY68WJxRHSpRLJe1-RVojnFxOX4XAnzbw-21lYLYc7uERuTL7cd1LUYk=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>KaffeeKult in Neuwied</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QH1f053GLVV8GqOK0T5YmWHdL4OxS1liHWKbhRAYXRVAHATzXE__KfoaKwfZqWDTjEGK7l4ndax-CXT0TeUdfqnQlZUl5OCn71nOgrfHFERsb__FXtXDNor3SSayOnbFDZe34Ps_t_cso=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RApTtFbM--G60Puh1PEiHw1e9As9KLiZUh8qhSdA-fsm-Nh0fDe2vosmom5cGHf2kAlYNQkHgO7jBk7uLYiqF_NCFK999uMAoMihmMthEt_Z-EUiWSW4HdZt6m5Va5VWOs9KWyZPYiEfxW=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Swi2mWZE88FPu-BZoP92tI8X-TQaGayRLEt0uhtgI-MWe-bfORDyi0DOCJjCOR24o1nMtkICKwJCTfozfSTQ3FmFGd2WLVkaI80Cq7c9r41VbcUfK4dioewSvxEKOwRA7-lk1YeA=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RDIFRT274adKFW6bIKnYBle0lRomuv5ck0sh3nkpi2sMLjvGDJ_zCXuczpUy3Qf0n0TNn53SWjt8nM09PNIthKqjYf2AvKdKa2g_pIoQulvKsxdT6aSaj9UBx-CIDHDKTncJn1KQ=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RNV8SY9Y41yLLxjm7n8hJ_YbVGDKhe7_97WBUjxAapfqgNmfbWfywFKBiLh40KOqqY-reYQaYMDMKi02QtdUyvlf9VlFYWwjNJeLAy3jjPhFuZVZuIuQpXa9zfDLsBmcSyQtNIo6D_CH46=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+          <figure><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RmW8nvh4cdwWdREcE_6D9--5ofdpkFSvT4Pl89Uj47PC1m4DnyvCZhyTc8liOjJfeY2qquevpqYeKwX_n14URrL2Sr9GgJVmcxqTdOLLYjYAY9-2Dtm11-dc5Kas5_Y8xfDHBh=w1000-h1000-n-k-no-nu" alt="Foto vom KaffeeKult in Neuwied" loading="lazy"><figcaption>Einblick ins KaffeeKult</figcaption></figure>
+        </div>
+        <p class="intro" style="font-size:.85rem">Die Fotos stammen aus den Google-Fotovorschauen, die du geschickt hast. Sie werden direkt von Google geladen.</p>
+      </div>
+    </section>
+
+    <section class="review" id="stimmen">
+      <div class="wrap review-grid">
+        <div><div class="eyebrow">Das sagen unsere Gäste</div><h2 class="section-title">Kaffee, Kuchen und ein herzliches Willkommen.</h2><div class="rating">4,8</div><div class="stars" aria-label="5 von 5 Sternen">★★★★★</div><small>von 5 · 67 Google-Rezensionen laut den bereitgestellten Angaben</small></div>
+        <div><p class="review-text">„Sehr nette Bedienung, man fühlt sich gleich willkommen. Die Kuchen sind hausgemacht.“</p><small>Auszug aus einer Gästebewertung, laut bereitgestelltem Suchergebnis</small></div>
+      </div>
+    </section>
+
+    <section id="besuch">
+      <div class="wrap contact-box"><div><div class="eyebrow" style="color:#f0c89e">Wir freuen uns auf dich</div><h2 class="section-title">Besuch uns in Neuwied</h2><p class="address">Langendorfer Straße 121<br>56564 Neuwied</p><p>Öffnungszeiten können sich ändern – ruf am besten kurz an, bevor du dich auf den Weg machst.</p></div><div class="actions"><a class="button" href="https://maps.google.com/?q=KaffeeKult+GmbH+Langendorfer+Str.+121+56564+Neuwied" target="_blank" rel="noopener">Route planen ↗</a><a class="button" href="tel:+4926319272375">02631 9272375</a></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year"></span> KaffeeKult GmbH</span><span><a href="tel:+4926319272375">02631 9272375</a> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
